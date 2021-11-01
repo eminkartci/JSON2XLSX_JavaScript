@@ -129,34 +129,39 @@
             "voltageL2Value": 131,
             "voltageL3Value": 132
         }]
-        const rows = [];
-        for (let i = 0; i < json_dosyasi.length; i++) {
-            rows[i] = []
-            if (i == 0) {
-                let titles = []
-                for (let x = 0; x < Object.keys(json_dosyasi[i]).length; x++) {
-                    titles.push(Object.keys(json_dosyasi[i])[x])
+
+        function json_to_csv(json_dosyasi) {
+            const rows = [];
+            for (let i = 0; i < json_dosyasi.length; i++) {
+                rows[i] = []
+                if (i == 0) {
+                    let titles = []
+                    for (let x = 0; x < Object.keys(json_dosyasi[i]).length; x++) {
+                        titles.push(Object.keys(json_dosyasi[i])[x])
+                    }
+                    rows[i].push(titles);
+                } else {
+                    rows[i].push([json_dosyasi[i].meterIdentityId, json_dosyasi[i].meterDate, json_dosyasi[i].meterFactorValue, json_dosyasi[i].currentRateFactorValue], json_dosyasi[i].voltageRateFactorValue, json_dosyasi[i].loadProfileDate, json_dosyasi[i].positiveT0Value, json_dosyasi[i].positiveRiValue, json_dosyasi[i].positiveRcValue, json_dosyasi[i].negativeT0Value, json_dosyasi[i].negativeRiValue, json_dosyasi[i].negativeRcValue, json_dosyasi[i].currentL1Value, json_dosyasi[i].currentL2Value, json_dosyasi[i].currentL3Value, json_dosyasi[i].voltageL1Value, json_dosyasi[i].voltageL2Value, json_dosyasi[i].voltageL3Value, );
                 }
-                rows[i].push(titles);
-            } else {
-                rows[i].push([json_dosyasi[i].meterIdentityId, json_dosyasi[i].meterDate, json_dosyasi[i].meterFactorValue, json_dosyasi[i].currentRateFactorValue], json_dosyasi[i].voltageRateFactorValue, json_dosyasi[i].loadProfileDate, json_dosyasi[i].positiveT0Value, json_dosyasi[i].positiveRiValue, json_dosyasi[i].positiveRcValue, json_dosyasi[i].negativeT0Value, json_dosyasi[i].negativeRiValue, json_dosyasi[i].negativeRcValue, json_dosyasi[i].currentL1Value, json_dosyasi[i].currentL2Value, json_dosyasi[i].currentL3Value, json_dosyasi[i].voltageL1Value, json_dosyasi[i].voltageL2Value, json_dosyasi[i].voltageL3Value, );
             }
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+
+            rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "result.csv");
+            document.body.appendChild(link); // Required for FF
+
+            link.click();
         }
 
-        let csvContent = "data:text/csv;charset=utf-8,";
-
-        rows.forEach(function(rowArray) {
-            let row = rowArray.join(",");
-            csvContent += row + "\r\n";
-        });
-
-        var encodedUri = encodeURI(csvContent);
-        var link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "result.csv");
-        document.body.appendChild(link); // Required for FF
-
-        link.click();
+        json_to_csv(json_dosyasi)
     </script>
 
 
