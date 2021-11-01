@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plakadan Şehir Bulma</title>
+</head>
+
+<body>
+
+
+
+    <!-- Plakadan Şehire -->
+
+    <!-- <input type="number" name="" id="plaka">
+                    <input type="button" value="tıkla" id="submit" onclick="plaka_to_sehir(plaka_number.value);">
+
+                    <script>
+                        let plaka_number = document.getElementById("plaka");
+                        let submit_button = document.getElementById("submit");
+
+                        function plaka_to_sehir(plaka) {
+                            let sehirler = ['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin', 'Aydın', 'Balıkesir', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale', 'Çankırı', 'Çorum', 'Denizli', 'Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum', 'Eskişehir', 'Gaziantep', 'Giresun', 'Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin', 'İstanbul', 'İzmir', 'Kars', 'Kastamonu', 'Kayseri', 'Kırklareli', 'Kırşehir', 'Kocaeli', 'Konya', 'Kütahya', 'Malatya', 'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş', 'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya', 'Samsun', 'Siirt', 'Sinop', 'Sivas', 'Tekirdağ', 'Tokat', 'Trabzon', 'Tunceli', 'Şanlıurfa', 'Uşak', 'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak', 'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce']
+
+                            return sehirler[plaka - 1]
+                        }
+                    </script> -->
+
+    <input type="button" value="tıkla" id="submit" onclick="save_xlsx_file()">
+
+    <script src="xlsx.js"></script>
+    <script src="FileSaver.js"></script>
+
+    <script>
+        let json_dosyası = [{
+            "meterIdentityId": 80024439,
+            "meterDate": "2021-11-15T06:04:15.131Z",
+            "meterFactorValue": 55,
+            "currentRateFactorValue": 40,
+            "voltageRateFactorValue": 47,
+            "loadProfileDate": "2021-03-04T09:37:54.588Z",
+            "positiveT0Value": 121,
+            "positiveRiValue": 122,
+            "positiveRcValue": 123,
+            "negativeT0Value": 124,
+            "negativeRiValue": 125,
+            "negativeRcValue": 126,
+            "currentL1Value": 127,
+            "currentL2Value": 128,
+            "currentL3Value": 129,
+            "voltageL1Value": 130,
+            "voltageL2Value": 131,
+            "voltageL3Value": 132
+        }, {
+            "meterIdentityId": 80024439,
+            "meterDate": "2021-11-15T06:04:15.131Z",
+            "meterFactorValue": 55,
+            "currentRateFactorValue": 40,
+            "voltageRateFactorValue": 47,
+            "loadProfileDate": "2021-03-04T09:37:54.588Z",
+            "positiveT0Value": 121,
+            "positiveRiValue": 122,
+            "positiveRcValue": 123,
+            "negativeT0Value": 124,
+            "negativeRiValue": 125,
+            "negativeRcValue": 126,
+            "currentL1Value": 127,
+            "currentL2Value": 128,
+            "currentL3Value": 129,
+            "voltageL1Value": 130,
+            "voltageL2Value": 131,
+            "voltageL3Value": 132
+        }, {
+            "meterIdentityId": 80024439,
+            "meterDate": "2021-11-15T06:04:15.131Z",
+            "meterFactorValue": 55,
+            "currentRateFactorValue": 40,
+            "voltageRateFactorValue": 47,
+            "loadProfileDate": "2021-03-04T09:37:54.588Z",
+            "positiveT0Value": 121,
+            "positiveRiValue": 122,
+            "positiveRcValue": 123,
+            "negativeT0Value": 124,
+            "negativeRiValue": 125,
+            "negativeRcValue": 126,
+            "currentL1Value": 127,
+            "currentL2Value": 128,
+            "currentL3Value": 129,
+            "voltageL1Value": 130,
+            "voltageL2Value": 131,
+            "voltageL3Value": 132
+        }, {
+            "meterIdentityId": 80024439,
+            "meterDate": "2021-11-15T06:04:15.131Z",
+            "meterFactorValue": 55,
+            "currentRateFactorValue": 40,
+            "voltageRateFactorValue": 47,
+            "loadProfileDate": "2021-03-04T09:37:54.588Z",
+            "positiveT0Value": 121,
+            "positiveRiValue": 122,
+            "positiveRcValue": 123,
+            "negativeT0Value": 124,
+            "negativeRiValue": 125,
+            "negativeRcValue": 126,
+            "currentL1Value": 127,
+            "currentL2Value": 128,
+            "currentL3Value": 129,
+            "voltageL1Value": 130,
+            "voltageL2Value": 131,
+            "voltageL3Value": 132
+        }, {
+            "meterIdentityId": 80024439,
+            "meterDate": "2021-11-15T06:04:15.131Z",
+            "meterFactorValue": 55,
+            "currentRateFactorValue": 40,
+            "voltageRateFactorValue": 47,
+            "loadProfileDate": "2021-03-04T09:37:54.588Z",
+            "positiveT0Value": 121,
+            "positiveRiValue": 122,
+            "positiveRcValue": 123,
+            "negativeT0Value": 124,
+            "negativeRiValue": 125,
+            "negativeRcValue": 126,
+            "currentL1Value": 127,
+            "currentL2Value": 128,
+            "currentL3Value": 129,
+            "voltageL1Value": 130,
+            "voltageL2Value": 131,
+            "voltageL3Value": 132
+        }]
+
+        for (let i = 0; i < json_dosyası.length; i++) {
+            /*console.log("i = " + (i + 1) + " : " + json_dosyası[i].meterIdentityId)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].meterDate)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].meterFactorValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].currentRateFactorValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].voltageRateFactorValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].loadProfileDate)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].positiveT0Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].positiveRiValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].positiveRcValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].negativeT0Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].negativeRiValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].negativeRcValue)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].currentL1Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].currentL2Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].currentL3Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].voltageL1Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].voltageL2Value)
+            console.log("i = " + (i + 1) + " : " + json_dosyası[i].voltageL3Value)*/
+
+        }
+
+        var wb = XLSX.utils.book_new();
+
+        wb.Props = {
+            Title: "Deneme1",
+            Subject: "Test",
+            Author: "Javascript",
+            CreatedDate: new Date(2006, 11, 1)
+        };
+
+        wb.SheetNames.push("Test Sheet");
+        var ws_data = [
+            ['hello', 'world']
+        ]; //a row with 2 columns
+        var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        wb.Sheets["Test Sheet"] = ws;
+        var wbout = XLSX.write(wb, {
+            bookType: 'xlsx',
+            type: 'binary'
+        });
+
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+            var view = new Uint8Array(buf); //create uint8array as viewer
+            for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+            console.log("s2ab")
+            return buf;
+
+        }
+
+        function save_xlsx_file() {
+            console.log("submited")
+            saveAs(new Blob([s2ab(wbout)], {
+                type: "application/octet-stream"
+            }), 'test.xlsx');
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
