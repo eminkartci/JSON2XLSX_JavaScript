@@ -130,7 +130,7 @@
             "voltageL3Value": 132
         }]
 
-        function json_to_csv(json_dosyasi) {
+        function rows_of_sheet(json_dosyasi) {
             const rows = [];
             for (let i = 0; i < json_dosyasi.length; i++) {
                 rows[i] = []
@@ -144,6 +144,11 @@
                     rows[i].push([json_dosyasi[i].meterIdentityId, json_dosyasi[i].meterDate, json_dosyasi[i].meterFactorValue, json_dosyasi[i].currentRateFactorValue], json_dosyasi[i].voltageRateFactorValue, json_dosyasi[i].loadProfileDate, json_dosyasi[i].positiveT0Value, json_dosyasi[i].positiveRiValue, json_dosyasi[i].positiveRcValue, json_dosyasi[i].negativeT0Value, json_dosyasi[i].negativeRiValue, json_dosyasi[i].negativeRcValue, json_dosyasi[i].currentL1Value, json_dosyasi[i].currentL2Value, json_dosyasi[i].currentL3Value, json_dosyasi[i].voltageL1Value, json_dosyasi[i].voltageL2Value, json_dosyasi[i].voltageL3Value, );
                 }
             }
+            return rows;
+        }
+
+        function json_to_csv(json_dosyasi, rows) {
+
 
             let csvContent = "data:text/csv;charset=utf-8,";
 
@@ -161,7 +166,44 @@
             link.click();
         }
 
-        json_to_csv(json_dosyasi)
+        function json_to_xlsx(json_dosyasi, rows) {
+            var wb = XLSX.utils.book_new();
+
+            wb.Props = {
+                Title: "Deneme1",
+                Subject: "Test",
+                Author: "Javascript",
+                CreatedDate: new Date(2006, 11, 1)
+            };
+
+            wb.SheetNames.push("Test Sheet");
+            var ws_data = rows; //a row with 2 columns
+            var ws = XLSX.utils.aoa_to_sheet(ws_data);
+            wb.Sheets["Test Sheet"] = ws;
+            var wbout = XLSX.write(wb, {
+                bookType: 'xlsx',
+                type: 'binary'
+            });
+
+
+
+            console.log("submited")
+            saveAs(new Blob([s2ab(wbout)], {
+                type: "application/octet-stream"
+            }), 'test.xlsx');
+
+        }
+
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+            var view = new Uint8Array(buf); //create uint8array as viewer
+            for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+            console.log("s2ab")
+            return buf;
+
+        }
+
+        json_to_xlsx(json_dosyasi, rows_of_sheet(json_dosyasi))
     </script>
 
 
