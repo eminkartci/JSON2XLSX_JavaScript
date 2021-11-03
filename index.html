@@ -215,8 +215,15 @@
 
             return (minutes)
         }
+
+        function name(date) {
+            console.log(date)
+            day = date.replaceAll("T", " ").replaceAll("Z", "").split(" ")[0].split("-")[2] + "." + date.replaceAll("T", " ").replaceAll("Z", "").split(" ")[0].split("-")[1] + "." + date.replaceAll("T", " ").replaceAll("Z", "").split(" ")[0].split("-")[0]
+            time = date.replaceAll("T", " ").replaceAll("Z", "").split(" ")[1].split(".")[0]
+            return day + " " + time
+        }
         //burdaki T ve Z ne ?
-        console.log(calculate_mins_between_two_dates("2021-03-04T09:30:54.588Z", "2021-03-04T09:45:54.588Z"))
+        console.log(name("2021-03-04T09:30:54.588Z"))
     </script>
 
 
