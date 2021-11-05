@@ -147,7 +147,7 @@
             return rows;
         }
 
-        function json_to_csv(json_dosyasi, rows) {
+        function json_to_csv(rows) {
 
 
             let csvContent = "data:text/csv;charset=utf-8,";
@@ -158,12 +158,7 @@
             });
 
             var encodedUri = encodeURI(csvContent);
-            var link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "result.csv");
-            document.body.appendChild(link); // Required for FF
-
-            link.click();
+            console.log(encodedUri);
         }
 
         function json_to_xlsx(json_dosyasi, rows) {
@@ -223,7 +218,7 @@
             return day + " " + time
         }
         //burdaki T ve Z ne ?
-        console.log(name("2021-03-04T09:30:54.588Z"))
+        console.log(json_to_csv(rows_of_sheet(json_dosyasi)))
     </script>
 
 

@@ -1,0 +1,25 @@
+{
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "https": "^1.0.0",
+        "json2csv": "^5.0.6",
+        "node": "^17.0.1"
+    },
+    "name": "json2xlsx_javascript",
+    "description": "",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eminkartci/JSON2XLSX_JavaScript.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/eminkartci/JSON2XLSX_JavaScript/issues"
+    },
+    "homepage": "https://github.com/eminkartci/JSON2XLSX_JavaScript#readme"
+}
